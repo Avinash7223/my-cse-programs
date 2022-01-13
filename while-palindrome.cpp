@@ -1,23 +1,23 @@
-/*2. Check whether a number is palindrome or not*/
-
-#include <stdio.h>
-int main() 
+/*2. Check whether a number is palindrome or not.*/
+#include<stdio.h>
+int main()
 {
-  int n,rev,rem,org;
-    printf("Enter an number: ");
-    scanf("%d",&n);
-    org=n;
-    rev=0;
-     while (n != 0)
-	 {
-        rem=n%10;
-        rev=rev*10+rem;
-        n=n/10;
-    } 
-    if{ (org==rev)
-        printf("%d is a palindrome.", org);
-    }else
-     {   printf("%d is not a palindrome.",org);}
-
-    return 0;
+	int num,orig,rmd,sum=0,i=0;
+	printf("Enter the number:");
+	scanf("%d",&num);
+	orig=num;
+	for(i=0;i<num;num=num/10)
+	{
+		rmd=num%10;
+		sum=(sum*10)+rmd;
+		
+	}
+	if(orig==sum)
+	{
+		printf("it is palindrome number %d",sum);
+	}
+	else
+	{
+		printf("It is not a palindrome %d",sum);
+	}
 }
