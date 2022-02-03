@@ -61,17 +61,32 @@ int prefect( int numb)
           printf(" is not a Perfect Number\n");  
 
 }
-int armstrong(int n)
+int arm(int num)
 {
-	int r,sum=0,org=n;   
-    while(n>0)    
-		{    
-			r=n%10;    
-			sum=sum+(r*r*r);    
-			n=n/10;    
-		}    
-		if(org==sum)    
-			printf("armstrong  number ");    
-		else    
-			printf("not armstrong number");  
+    int di=0,org,sum=0,n,result=0,number;
+    
+    org=num;
+    number=num;
+    while(num!=0)
+    {
+    
+        di=di+1;
+        num=num/10;
+    }
+   
+    while(org>0)
+    {
+        n = org % 10;
+        
+        result =result+pow(n,di);
+        sum=sum+n;
+        
+        
+        org=org/10;
+    }
+    
+   if (result == number)
+    printf("Armstrong number");
+   else
+    printf("Not an Armstrong number");
 }
