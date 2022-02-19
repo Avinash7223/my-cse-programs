@@ -1,23 +1,25 @@
 #include<stdio.h>
-void ascending(int num[]);
+void ascending(int num[],int n);
 int main()
 {
-    int num[5],i;
+    int num[100],i,n;
     
-   for(i=0;i<5;i++)
+    printf("enter the number of numbers:");
+	scanf("%d",&n);    
+   for(i=0;i<n;i++)
    {
         scanf("%d",&num[i]);
    }
-   ascending(num);
+   ascending(num,n);
     
 }
-void ascending(int num[])
+void ascending(int num[],int n)
 {
     int i,temp,j;
   
-   for(i=0;i<5;i++)
+   for(i=0;i<n;i++)
 	{
-		for(j=i+1;j<5;j++)
+		for(j=i+1;j<n;j++)
 		{
 			if(num[i]>num[j])
 			{
@@ -27,8 +29,8 @@ void ascending(int num[])
 			}
 		}
 	}
-	printf("the given numbers in ascending order\n");
-	for(i=0;i<5;i++)
+	printf("\nthe given numbers in ascending order\n");
+	for(i=0;i<n;i++)
 	{
 		printf("%d\n",num[i]);
 	}
