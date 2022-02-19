@@ -1,0 +1,95 @@
+
+
+1. Example of Union
+#include <stdio.h>
+struct test1 
+{
+    int x, y;
+};
+
+union test 
+{
+    int x, y;
+};
+
+int main() 
+{
+    struct test1 t1={1,2};
+    union test t;
+    t.x = 3; // t.y also gets value 3
+    printf ("after fixing x value the coordinates of t will be %d %d\n\n",t.x, t.y);
+    t.y = 4; // t.x is also updated to 4
+    printf ("After fixing y value the coordinates of t will be %d %d\n\n", t.x, t.y);
+    printf("The coordinates of t1 are %d %d",t1.x,t1.y);
+    return 0;
+} 
+
+2. Example of Union within Structure
+
+#include<stdio.h>
+struct student 
+{
+    union 
+    { //anonymous union (unnamed union)
+        char name[10];
+        int roll;
+    };
+    int mark;
+};
+
+int main() 
+{
+    struct student stud;
+    char choice;
+    printf("\n You can enter your name or roll number ");
+    printf("\n Do you want to enter the name (y or n): ");
+    scanf("%c",&choice);
+    if(choice=='y'||choice=='Y') 
+    {
+        printf("\n Enter name: ");
+        scanf("%s",stud.name);
+        printf("\n Name:%s",stud.name);
+    }
+    else 
+    {
+        printf("\n Enter roll number");
+        scanf("%d",&stud.roll);
+        printf("\n Roll:%d",stud.roll);
+    }
+    printf("\n Enter marks");
+    scanf("%d",&stud.mark);
+    printf("\n Marks:%d",stud.mark);
+    return 0;
+}
+
+3. Example of structure within union
+
+#include<stdio.h>
+int main() 
+{
+    struct student 
+    {
+        char name[30];
+        int rollno;
+        float percentage;
+    };
+    union details 
+    {
+        struct student s1;
+    };
+    union details set;
+    printf("Enter details:");
+    printf("\nEnter name : ");
+    scanf("%s", set.s1.name);
+    printf("\nEnter roll no : ");
+    scanf("%d", &set.s1.rollno);
+    printf("\nEnter percentage :");
+    scanf("%f", &set.s1.percentage);
+    printf("\nThe student details are : \n");
+    printf("\name : %s", set.s1.name);
+    printf("\nRollno : %d", set.s1.rollno);
+    printf("\nPercentage : %f", set.s1.percentage);
+    return 0;
+}
+
+8. 
